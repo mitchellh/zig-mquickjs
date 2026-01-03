@@ -60,7 +60,7 @@ pub fn build(b: *std.Build) !void {
             target,
             optimize,
             try stdlibGen(b, .{
-                .file = b.path("test_stdlib.c"),
+                .file = b.path("src/test_stdlib.c"),
                 .flags = stdlib_gen_flags,
             }),
         ));
