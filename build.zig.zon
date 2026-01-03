@@ -1,0 +1,13 @@
+.{
+    .name = .mquickjs,
+    .version = "0.0.0",
+    .fingerprint = 0x9011e755ae4cf2fe,
+    .paths = .{""},
+    .dependencies = .{
+        // bellard/mquickjs
+        .mquickjs = .{
+            .url = "https://github.com/bellard/mquickjs/archive/767e5db54241f0b53193a04aea193c823a9e3121.tar.gz",
+            .hash = "N-V-__8AAH_KDgAc_2J3w461iC-aXVoZUUf3cikp2GONAVnb",
+        },
+    },
+}
