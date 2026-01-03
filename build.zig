@@ -34,7 +34,7 @@ pub fn build(b: *std.Build) !void {
     // mquickjs Zig module
     const mod = module: {
         const mod = b.addModule("mquickjs", .{
-            .root_source_file = b.path("main.zig"),
+            .root_source_file = b.path("src/main.zig"),
             .target = target,
             .optimize = optimize,
         });

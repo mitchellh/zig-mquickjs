@@ -2,7 +2,14 @@
     .name = .mquickjs,
     .version = "0.0.0",
     .fingerprint = 0x9011e755ae4cf2fe,
-    .paths = .{""},
+    .minimum_zig_version = "0.15.2",
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src/",
+        "LICENSE",
+        "README.md",
+    },
     .dependencies = .{
         // bellard/mquickjs
         .mquickjs = .{
