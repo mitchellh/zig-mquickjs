@@ -1,0 +1,11 @@
+[files]
+extend-exclude = [
+  # Build
+  "build.zig.zon",
+  # Build artifacts
+  "zig-out/*",
+  # Do not self-check
+  "typos.toml",
+]
+
+[default.extend-words]

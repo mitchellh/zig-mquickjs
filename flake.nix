@@ -33,6 +33,7 @@
       in rec {
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
+            typos
             zig
           ];
         };

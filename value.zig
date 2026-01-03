@@ -294,9 +294,9 @@ pub const Value = enum(usize) {
     /// Convert value to a C string with length. The returned pointer is valid until the next GC.
     /// C: JS_ToCStringLen
     pub fn toCStringLen(self: Value, ctx: *Context, len_out: *usize, buf: *StringBuf) ?[*:0]const u8 {
-        var clen: usize = 0;
-        const ptr = c.JS_ToCStringLen(@ptrCast(ctx), &clen, self.cval(), buf);
-        len_out.* = clen;
+        var len: usize = 0;
+        const ptr = c.JS_ToCStringLen(@ptrCast(ctx), &len, self.cval(), buf);
+        len_out.* = len;
         return ptr;
     }
 
