@@ -25,7 +25,13 @@ pub fn main() !void {
 
 ## Usage
 
-**zig-mquickjs only works with the released version of Zig specified
+Integrating zig-mquickjs into your Zig project is slightly different
+than a standard Zig dependency because mquickjs works by building a ROM
+for your JS stdlib. It isn't much harder though! You have to import the
+`mquickjs` dependency and call `library` and `stdlibGen` functions to
+setup the lib for you.
+
+**Zig version: zig-mquickjs only works with the released version of Zig specified
 in the `build.zig.zon` file.** We don't support
 nightly versions because the Zig compiler is still changing too much.
 
@@ -76,10 +82,10 @@ pub fn build(b: *std.Build) !void {
 
     // Build and link the C library with your stdlib
     const lib = try mquickjs.library(
-        b,
+        dep.builder,
         target,
         optimize,
-        try mquickjs.stdlibGen(b, .{
+        try mquickjs.stdlibGen(dep.builder, .{
             .file = b.path("src/stdlib.c"),
             .flags = mquickjs.stdlib_gen_flags,
         }),
@@ -89,16 +95,6 @@ pub fn build(b: *std.Build) !void {
     b.installArtifact(exe);
 }
 ```
-
-### Standard Library
-
-MQuickJS requires a standard library ROM that defines the JavaScript built-ins
-available to your scripts. This is currently defined using C although I
-have aspirations to enable pure Zig.
-
-The `stdlibGen` function compiles this into a tool that generates the ROM data
-at build time. See the [mquickjs repository](https://github.com/bellard/mquickjs)
-for complete stdlib examples.
 
 ## Documentation
 
